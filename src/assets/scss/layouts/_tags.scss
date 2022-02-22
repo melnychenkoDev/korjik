@@ -1,0 +1,31 @@
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  .tag {
+    display: inline-flex;
+    border-radius: 37px;
+    font-weight: 600;
+    font-size: 14px;
+    color: $textColorLight;
+    line-height: 1;
+    padding: 5px 10px;
+    cursor: default;
+    user-select: none;
+
+    &_offer {
+      background-color: #FF6900;
+    }
+
+    &_new {
+      background-color: #38BD48;
+    }
+
+  }
+}

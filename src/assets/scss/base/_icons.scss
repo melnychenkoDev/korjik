@@ -1,0 +1,179 @@
+.icon {
+  position: relative;
+  display: flex;
+  padding-left: 40px;
+
+  @media (max-width: $displayWidthXl) {
+    & {
+      padding-left: 30px;
+    }
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+
+    @media (max-width: $displayWidthXl) {
+      & {
+        width: 25px;
+        height: 25px;
+      }
+    }
+
+  }
+
+  &-right {
+    padding-right: 40px;
+
+    &:before {
+      right: 0;
+    }
+
+    @media (max-width: $displayWidthXl) {
+      & {
+        padding-right: 30px;
+      }
+    }
+
+  }
+
+  &-tel {
+    &:before {
+      background-image: getCallIcon($textColorDarkTitle);
+    }
+
+    &-main-color {
+      &:before {
+        background-image: getCallIcon($textColorMain);
+      }
+    }
+
+  }
+
+  &-delivery {
+
+    &:before {
+      width: 25px;
+      background-image: getLocation2Icon($textColorDarkTitle);
+
+      @media (max-width: $displayWidthXl) {
+        & {
+          width: 20px;
+          height: 25px;
+        }
+      }
+
+    }
+
+    &-zone {
+
+      &:before {
+        width: 25px;
+        background-image: getLocationIcon($textColorDarkTitle);
+
+        @media (max-width: $displayWidthXl) {
+          & {
+            width: 20px;
+            height: 25px;
+          }
+        }
+
+      }
+
+      &-main-color {
+
+        &:before {
+          width: 25px;
+          background-image: getLocationIcon($textColorMain);
+
+          @media (max-width: $displayWidthXl) {
+            & {
+              width: 20px;
+              height: 25px;
+            }
+          }
+
+        }
+
+      }
+
+    }
+  }
+
+  &-favorite {
+
+    &:before {
+      background-image: getFavoriteLinkIcon();
+      width: 35px;
+      height: 35px;
+
+      @media (max-width: $displayWidthXl) {
+        & {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+    }
+  }
+
+  &-cart {
+
+    &:before {
+      background-image: getCartIcon();
+    }
+
+    &.main-color {
+      &:before {
+        background-image: getCartIcon($mainColor);
+      }
+    }
+
+  }
+
+  &-plus {
+
+    &:before {
+      width: 19px!important;
+      height: 19px!important;
+      top: 0;
+      left: 0;
+      transform: translateY(0);
+      background-image: getPlusIcon();
+    }
+
+    &.close {
+      transform: rotate(45deg);
+    }
+
+    &.grey {
+      &:before {
+        background-image: getPlusIcon(#4F4F4F);
+      }
+    }
+
+  }
+
+  &-minus {
+
+    &:before {
+      width: 19px!important;
+      height: 4px!important;
+      top: 0;
+      left: 0;
+      transform: translateY(0);
+      background-image: getMinusIcon();
+    }
+
+  }
+
+}

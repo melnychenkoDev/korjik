@@ -1,0 +1,153 @@
+.woocommerce-order {
+  display: flex;
+  flex-direction: column;
+  max-width: 745px;
+  margin: 0 auto 60px auto;
+  gap: 30px;
+
+  @media (max-width: $displayWidthMd) {
+    max-width: 95%;
+  }
+
+  .btn {
+    width: max-content;
+    margin: 0 auto;
+  }
+
+  &_top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+
+    .tit {
+      font-weight: normal;
+    }
+
+    .image {
+      max-width: 150px;
+      max-height: 150px;
+    }
+
+    @media (max-width: $displayWidthMd) {
+      justify-content: center;
+
+      .image {
+        display: none;
+      }
+    }
+
+  }
+
+  &_content {
+
+    .order_data {
+      display: flex;
+      flex-direction: column;
+      background: #FFFFFF;
+      border: 1px solid #E0E0E0;
+      border-radius: 5px;
+      max-width: 80%;
+      margin: 0 auto;
+
+      @media (max-width: $displayWidthMd) {
+        max-width: 100%;
+      }
+
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        border-bottom: 1px solid #E0E0E0;
+        padding: 25px;
+
+        @media (max-width: $displayWidthMd) {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .item {
+          font-weight: 500;
+          font-size: 18px;
+          color: $textColorDark;
+
+          &.total {
+            color: $textColorMain;
+            font-weight: bold;
+          }
+
+        }
+
+      }
+
+      .body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 50px;
+        padding: 25px;
+
+        @media (max-width: $displayWidthMd) {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .left {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          flex-basis: 60%;
+
+          .tit {
+            font-weight: bold;
+            font-size: 22px;
+            color: $textColorDarkTitle;
+          }
+
+          .info {
+            font-size: 16px;
+            color: $textColorDark;
+          }
+
+        }
+
+        .right {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          flex-basis: 30%;
+
+          .item {
+            font-weight: 600;
+            font-size: 14px;
+            color: $textColorDarkTitle;
+            position: relative;
+            padding-left: 35px;
+
+            &:before {
+              content: '';
+              background: #FF6900;
+              background-image: getCheckIcon();
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: 60%;
+              border-radius: 20px;
+              width: 20px;
+              height: 20px;
+              position: absolute;
+              top: 1px;
+              left: 0;
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}

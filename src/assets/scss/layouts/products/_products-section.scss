@@ -1,0 +1,67 @@
+.products {
+  display: grid;
+  grid-auto-columns: 1fr;
+  gap: 20px;
+
+  .products__items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+
+    @media (max-width: 1500px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: $displayWidthLg) {
+      gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: $displayWidthMd) {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 5px;
+    }
+
+    &.large {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+
+      @media (max-width: $displayWidthLg) {
+        gap: 20px;
+      }
+
+      @media (max-width: $displayWidthMd) {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 5px;
+      }
+    }
+
+    @import "products-card";
+
+  }
+
+}
+
+.products__wrapper {
+
+  .zoomImg {
+    width: 800px !important;
+    height: auto !important;
+
+    @media (max-width: $displayWidthMd) {
+      width: 400px !important;
+    }
+  }
+
+  &#drinks {
+    .zoomImg {
+      width: 250px !important;
+
+      @media (max-width: $displayWidthMd) {
+        width: 150px !important;
+      }
+    }
+  }
+
+}
+

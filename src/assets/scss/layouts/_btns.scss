@@ -1,0 +1,53 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid $btnMainColor;
+  background-color: $btnMainColor;
+  border-radius: $btnRadius;
+  padding: 10px 25px;
+  color: $textColorLight;
+  font-weight: 600;
+  font-size: 22px;
+  cursor: pointer;
+  outline: none;
+  transition: color .2s ease-in-out, background .2s ease-in-out, border .2s ease-in-out, opacity .2s ease-in-out;
+
+  &:hover {
+    //background: #FF7A1D;
+    opacity: .9;
+  }
+
+  &-outline {
+    background: transparent;
+    color: $btnMainColor;
+
+    &:hover {
+      background: $mainColor;
+      color: $textColorLight;
+    }
+
+  }
+
+  &-lg {
+    padding: 15px 25px;
+  }
+
+  @media (max-width: $displayWidthXxl) {
+    & {
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width: $displayWidthLg) {
+    & {
+      font-size: 16px;
+      padding: 7.5px 15px;
+
+      &-lg {
+        padding: 10px 20px;
+      }
+
+    }
+  }
+
+}

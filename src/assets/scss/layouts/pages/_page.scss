@@ -1,0 +1,162 @@
+.loEPla {
+  display: none !important;
+}
+
+.page-message {
+  margin-bottom: 30px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+
+  .message {
+    color: $textColorDarkTitle;
+    text-decoration: underline;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 140%;
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 10s infinite linear;
+  }
+
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-110%, 0)
+  }
+}
+
+.page__content {
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
+
+  &_left {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    flex-basis: 50%;
+    max-width: 900px;
+
+    .media {
+      display: flex;
+      width: 100%;
+      position: sticky;
+      top: 0;
+    }
+
+    iframe {
+      max-width: 100% !important;
+      width: 100%;
+      height: 600px;
+
+      @media (max-width: $displayWidthMd) {
+        height: calc(360px + (360 - 200) * (100vw - #{$displayWidthMd}) / (#{$displayWidthMd-num} - 320));
+      }
+
+    }
+
+  }
+
+  &_right {
+    display: flex;
+    align-items: center;
+    flex-basis: 50%;
+
+    .description__block {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      max-width: 550px;
+
+      p {
+        font-weight: 600;
+        font-size: 20px;
+        color: $textColorDark;
+
+        &:not(:last-child) {
+          margin-bottom: 30px;
+        }
+
+        @media (max-width: $displayWidthXl) {
+          font-size: 18px;
+        }
+
+        @media (max-width: $displayWidthMd) {
+          font-size: 16px;
+        }
+
+      }
+
+      .info__list {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        max-width: 450px;
+
+        &_item {
+          display: flex;
+          align-items: center;
+          gap: 35px;
+          font-weight: 600;
+          font-size: 20px;
+          color: $textColorDarkTitle;
+
+          a {
+            color: $textColorDarkTitle;
+          }
+
+          img {
+            max-width: 40px;
+            max-height: 40px;
+            object-fit: cover;
+          }
+
+          .tit {
+            font-weight: bold;
+            font-size: 20px;
+            color: $textColorDarkTitle;
+            margin-bottom: 10px;
+          }
+
+          .text {
+            font-weight: bold;
+            font-size: 20px;
+            color: $textColorMutedDarker;
+          }
+
+          @media (max-width: $displayWidthMd) {
+            font-size: 18px;
+          }
+
+          @media (max-width: $displayWidthSm) {
+            font-size: 16px;
+          }
+
+        }
+      }
+
+      .pay_text {
+        font-weight: 600;
+        font-size: 16px;
+        color: $textColorMutedDarker;
+      }
+
+    }
+  }
+
+  @media (max-width: $displayWidthXl) {
+    flex-direction: column;
+    gap: 60px;
+
+    &_left {
+      justify-content: center;
+    }
+
+  }
+
+}

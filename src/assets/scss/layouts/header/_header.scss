@@ -1,0 +1,130 @@
+.site__header {
+
+  @import "header-top";
+  @import "header-sticky-menu";
+
+  .languages_selector {
+
+    @media (max-width: $displayWidthMd) {
+      display: none;
+    }
+
+    &.mob {
+      display: none;
+
+      @media (max-width: $displayWidthMd) {
+        display: flex;
+      }
+
+    }
+
+  }
+
+}
+
+@import "header-content";
+@import "mob_menu";
+
+.open_cart_btn.mob {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  background: #FF6900;
+  cursor: pointer;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  border-top-right-radius: 100px;
+  border-top-left-radius: 100px;
+  font-weight: 600;
+  font-size: 14px;
+  color: $textColorLight;
+
+  @media (max-width: $displayWidthMd) {
+    display: flex;
+  }
+
+
+}
+
+.open_cart_btn {
+  position: relative;
+
+  &:not(.mob) {
+    .count {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 5px;
+      background-color: #fff;
+      color: $mainColor;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+  }
+
+
+  .open_cart_btn-message {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    width: max-content;
+    padding: 25px;
+    flex-direction: column;
+    gap: 10px;
+    transform: translateY(50px) translateX(-50%);
+    opacity: 0;
+    pointer-events: none;
+    background-color: #fff;
+    box-shadow: 0px 4px 35px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    transition: transform .2s ease-in-out, opacity .2s ease-in-out;
+    z-index: 1;
+
+    .title {
+
+    }
+
+    .sub-tit {
+      font-weight: 500;
+      font-size: 18px;
+      color: $textColorDark;
+    }
+
+    &.active {
+      transform: translateY(10px) translateX(-50%);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+  }
+
+  &.mob {
+
+    .count {
+      margin: 0 3px;
+      color: $textColorLight;
+    }
+
+    .open_cart_btn-message {
+      top: auto;
+      bottom: 100%;
+      left: 50%;
+      transform: translateY(-50px) translateX(-50%);
+      width: 90%;
+
+      &.active {
+        transform: translateY(-10px) translateX(-50%);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+    }
+  }
+
+}

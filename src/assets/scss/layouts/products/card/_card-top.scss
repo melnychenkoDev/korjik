@@ -1,0 +1,28 @@
+&_top {
+  position: relative;
+
+  @import "../../tags";
+
+  .card_thumb {
+    display: flex;
+    width: 100%;
+    cursor: zoom-in;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: auto;
+      max-height: 300px;
+
+      @media (max-width: $displayWidthMd) {
+        max-height: 160px;
+      }
+    }
+
+    @media (max-width: $displayWidthMd) {
+      height: 100%;
+      align-items: center;
+    }
+  }
+
+}

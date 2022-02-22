@@ -1,0 +1,13 @@
+section, .section {
+  margin-bottom: 90px;
+
+
+  @media (max-width: $displayWidthLg) {
+    margin-bottom: 60px;
+  }
+
+  @media (max-width: $displayWidthMd) {
+    margin-bottom: 35px;
+  }
+
+}

@@ -1,0 +1,33 @@
+.breadcrumbs__wrapper {
+
+  p {
+    color: $textColorDarkTitle!important;
+    font-weight: 500!important;
+    font-size: 14px!important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  a {
+    font-weight: 500!important;
+    font-size: 14px!important;
+    color: $textColorDark!important;
+  }
+
+  .separator {
+    font-size: 0;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 7px;
+      height: 7px;
+      background-image: getSeparatorIcon($textColorDark);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+}

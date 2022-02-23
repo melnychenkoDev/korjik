@@ -28,9 +28,8 @@
 &.large .products_item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   background-color: $cardBGColor;
-  padding: 35px;
+  padding: 30px;
   border-radius: 5px;
   gap: 20px;
 
@@ -39,11 +38,29 @@
   }
 
   @media (max-width: $displayWidthLg) {
-    padding: 20px 15px;
+    padding: 20px;
   }
 
   @media (max-width: $displayWidthMd) {
     padding: 15px;
+  }
+
+  &_top {
+    max-height: 400px;
+    flex-basis: 50%;
+
+    .card_thumb {
+
+      img {
+        max-height: max-content;
+      }
+
+    }
+
+  }
+
+  &_body {
+    flex-basis: 50%;
   }
 
 }

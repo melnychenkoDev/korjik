@@ -7,6 +7,8 @@
     gap: 30px;
     padding-top: 5px;
     padding-bottom: 7px;
+    max-width: 1150px;
+    overflow-x: auto;
 
     &::-webkit-scrollbar {
       width: 2em;
@@ -18,10 +20,7 @@
     }
 
     &_item {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      gap: 5px;
+
 
       &-icon {
         max-width: 50px;
@@ -29,6 +28,10 @@
       }
 
       &-text {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        gap: 5px;
         font-size: 16px;
         font-weight: 600;
         color: $textColorDarkTitle;

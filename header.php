@@ -206,13 +206,13 @@ $count = $woocommerce->cart->get_cart_contents_count();
                         <?php while (have_rows('nav_product_menu', 'option')) : the_row(); ?>
                             <?php if ( get_sub_field( 'nav_product_is_view' ) == 1 ) : ?>
                                 <div class="nav__product__menu_item">
-                                    <?php if (get_sub_field('nav_product_menu_icon')) : ?>
-                                        <div class="nav__product__menu_item-icon">
-                                            <img src="<?php the_sub_field('nav_product_menu_icon'); ?>"/>
-                                        </div>
-                                    <?php endif ?>
                                     <a class="nav__product__menu_item-text"
                                        href="<?php the_sub_field('nav_product_menu_id'); ?>">
+										<?php if (get_sub_field('nav_product_menu_icon')) : ?>
+											<div class="nav__product__menu_item-icon">
+												<img src="<?php the_sub_field('nav_product_menu_icon'); ?>"/>
+											</div>
+										<?php endif ?>
                                         <?php the_sub_field('nav_product_menu_text'); ?>
                                     </a>
                                 </div>

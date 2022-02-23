@@ -10,6 +10,7 @@
 
   .tag {
     display: inline-flex;
+    align-items: center;
     border-radius: 37px;
     font-weight: 600;
     font-size: 14px;
@@ -25,6 +26,25 @@
 
     &_new {
       background-color: #38BD48;
+    }
+
+    &_spicy, &_vegan {
+      font-size: 0;
+      display: block;
+      width: 25px;
+      height: 25px;
+      padding: 0;
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+    }
+
+    &_vegan {
+
     }
 
   }

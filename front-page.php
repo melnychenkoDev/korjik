@@ -81,7 +81,7 @@ $addition_query = new WP_Query($addition_args);
 				<div class="products__items large">
 					<?php while ($bowls_query->have_posts()) : $bowls_query->the_post(); ?>
 						<?php $product = wc_get_product(get_the_ID()); ?>
-						<?php get_template_part('template-parts/product/content', 'product-large', array('product' => $product)) ?>
+						<?php get_template_part('template-parts/product/content', 'product', array('product' => $product)) ?>
 					<?php endwhile; ?>
 				</div>
 			</div>

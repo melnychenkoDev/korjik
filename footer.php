@@ -81,6 +81,13 @@
     </div>
 </div>
 
+<!--<div class="we_closed" style="background:#000;">-->
+<!--	<div class="we_closed__content">-->
+<!--		<h4 class="tit" style="color: #3078d2">--><?//=__('Через ситуацію в країні ми на жаль не працюємо.', 'korjik')?><!--</h4>-->
+<!--		<h4 class="tit" style="color: #ffda45">--><?//=__('Віримо у перемогу. Слава Україні!', 'korjik')?><!--</h4>-->
+<!--	</div>-->
+<!--</div>-->
+
 
 <div class="overlay"></div>
 

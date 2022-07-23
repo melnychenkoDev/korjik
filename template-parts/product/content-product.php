@@ -5,8 +5,8 @@ $id = $product->get_id();
 $tag_ids = $product->get_tag_ids();
 $tag_html = '';
 $link = get_permalink($id);
-$img = wp_get_attachment_image($product->image_id, array(600, 600));
-//$imgBg = wp_get_attachment_image($product->image_id, array(1500, 1500));
+//$img = wp_get_attachment_image($product->image_id, array(600, 600));
+$imgBg = wp_get_attachment_image($product->image_id, array(1500, 1500));
 $title = $product->get_title();
 
 $weight = $product->get_weight();
@@ -34,7 +34,7 @@ foreach ($tag_ids as $tag_id) {
             <div class="tags"><?=$tag_html?></div>
         <?php endif; ?>
         <div class="card_thumb zoom zoom-img">
-            <?=$img?>
+            <?=$imgBg?>
         </div>
     </div>
     <div class="products_item_body">

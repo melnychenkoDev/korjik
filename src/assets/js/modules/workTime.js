@@ -4,13 +4,22 @@ const workTime = () => {
 
     localStorage.setItem('isWorkTime', 'true');
 
-    if ((date.getHours() < 11 && date.getMinutes() > 30) || (date.getHours() > 22 && date.getMinutes() > 30)) {
+    if ((date.getHours() < 11 && date.getMinutes() > 0) || (date.getHours() > 21 && date.getMinutes() > 0)) {
         if (localStorage.getItem('preOrder') != 'true') {
             localStorage.setItem('isWorkTime', 'false');
         }
     } else {
         localStorage.removeItem('preOrder');
     }
+
+    // if (true) {
+    //     if (localStorage.getItem('preOrder') != 'true') {
+    //         localStorage.setItem('isWorkTime', 'false');
+    //         document.body.style.overflow = 'hidden';
+    //     }
+    // } else {
+    //     localStorage.removeItem('preOrder');
+    // }
 
     const isWorkTimeBlock = document.querySelector('.we_closed');
 

@@ -81,18 +81,18 @@ function addToCart()
     if (!empty($cart_item_id) && !empty($cart_item_quantity)) {
 		WC()->cart->add_to_cart($cart_item_id, $cart_item_quantity);
 
-		if (get_current_user_id() == '1') {
-			if (count(WC()->cart->get_cart()) > 1) {
-				foreach (WC()->cart->get_cart() as $key => $cart_item) {
-					if ($cart_item->quantity > 1) {
-						echo $cart_item->line_total;
-					}
-				}
-			}
-
-			echo json_encode(WC()->cart->get_cart());
-			die();
-		}
+//		if (get_current_user_id() == '1') {
+//			if (count(WC()->cart->get_cart()) > 1) {
+//				foreach (WC()->cart->get_cart() as $key => $cart_item) {
+//					if ($cart_item->quantity > 1) {
+//						echo $cart_item->line_total;
+//					}
+//				}
+//			}
+//
+//			echo json_encode(WC()->cart->get_cart());
+//			die();
+//		}
 
         getCartItemsData();
     }

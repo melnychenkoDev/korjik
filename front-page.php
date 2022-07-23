@@ -8,6 +8,20 @@ $pizza_args = array(
 );
 $pizza_query = new WP_Query($pizza_args);
 
+$rolls_args = array(
+	'post_type' => 'product',
+	'product_cat' => 'rolls',
+	'posts_per_page' => -1,
+);
+$rolls_query = new WP_Query($rolls_args);
+
+$bullfinches_nigiri_args = array(
+	'post_type' => 'product',
+	'product_cat' => 'bullfinches-nigiri',
+	'posts_per_page' => -1,
+);
+$bullfinches_nigiri_query = new WP_Query($bullfinches_nigiri_args);
+
 $bowls_args = array(
 	'post_type' => 'product',
 	'product_cat' => 'bowls',
@@ -58,7 +72,7 @@ $addition_query = new WP_Query($addition_args);
         <div class="container container-lg">
             <div class="products">
                 <div class="products__top">
-                    <h2 class="title">Пицца</h2>
+                    <h2 class="title"><?=__('Пицца', 'korjik')?></h2>
                 </div>
                 <div class="products__items">
                     <?php while ($pizza_query->have_posts()) : $pizza_query->the_post(); ?>
@@ -71,17 +85,53 @@ $addition_query = new WP_Query($addition_args);
     </section>
 <?php endif; ?>
 
+<?php if ($rolls_query->have_posts()): ?>
+	<section class="products__wrapper" id="rolls">
+		<div class="container container-lg">
+			<div class="products">
+				<div class="products__top">
+					<h2 class="title"><?=__('Роллы', 'korjik')?></h2>
+				</div>
+				<div class="products__items">
+					<?php while ($rolls_query->have_posts()) : $rolls_query->the_post(); ?>
+						<?php $product = wc_get_product(get_the_ID()); ?>
+						<?php get_template_part('template-parts/product/content', 'product', array('product' => $product)) ?>
+					<?php endwhile; ?>
+				</div>
+			</div>
+		</div>
+	</section>
+<?php endif; ?>
+
+<?php if ($bullfinches_nigiri_query->have_posts()): ?>
+	<section class="products__wrapper" id="bullfinches-nigiri">
+		<div class="container container-lg">
+			<div class="products">
+				<div class="products__top">
+					<h2 class="title"><?=__('Снегири нигири', 'korjik')?></h2>
+				</div>
+				<div class="products__items">
+					<?php while ($bullfinches_nigiri_query->have_posts()) : $bullfinches_nigiri_query->the_post(); ?>
+						<?php $product = wc_get_product(get_the_ID()); ?>
+						<?php get_template_part('template-parts/product/content', 'product', array('product' => $product)) ?>
+					<?php endwhile; ?>
+				</div>
+			</div>
+		</div>
+	</section>
+<?php endif; ?>
+
 <?php if ($bowls_query->have_posts()): ?>
 	<section class="products__wrapper" id="bowls">
 		<div class="container container-lg">
 			<div class="products">
 				<div class="products__top">
-					<h2 class="title">Боулы</h2>
+					<h2 class="title"><?=__('Боулы', 'korjik')?></h2>
 				</div>
 				<div class="products__items large">
 					<?php while ($bowls_query->have_posts()) : $bowls_query->the_post(); ?>
 						<?php $product = wc_get_product(get_the_ID()); ?>
-						<?php get_template_part('template-parts/product/content', 'product-large', array('product' => $product)) ?>
+						<?php get_template_part('template-parts/product/content', 'product', array('product' => $product)) ?>
 					<?php endwhile; ?>
 				</div>
 			</div>
@@ -94,7 +144,7 @@ $addition_query = new WP_Query($addition_args);
         <div class="container container-lg">
             <div class="products">
                 <div class="products__top">
-                    <h2 class="title">Закуски</h2>
+                    <h2 class="title"><?=__('Закуски', 'korjik')?></h2>
                 </div>
                 <div class="products__items">
                     <?php while ($snacks_query->have_posts()) : $snacks_query->the_post(); ?>
@@ -112,7 +162,7 @@ $addition_query = new WP_Query($addition_args);
         <div class="container container-lg">
             <div class="products">
                 <div class="products__top">
-                    <h2 class="title">Напитки</h2>
+                    <h2 class="title"><?=__('Напитки', 'korjik')?></h2>
                 </div>
                 <div class="products__items">
                     <?php while ($drink_query->have_posts()) : $drink_query->the_post(); ?>
@@ -130,7 +180,7 @@ $addition_query = new WP_Query($addition_args);
         <div class="container container-lg">
             <div class="products">
                 <div class="products__top">
-                    <h2 class="title">Десерты</h2>
+                    <h2 class="title"><?=__('Десерты', 'korjik')?></h2>
                 </div>
                 <div class="products__items">
                     <?php while ($desserts_query->have_posts()) : $desserts_query->the_post(); ?>
@@ -148,7 +198,7 @@ $addition_query = new WP_Query($addition_args);
 		<div class="container container-lg">
 			<div class="products">
 				<div class="products__top">
-					<h2 class="title">Соусы</h2>
+					<h2 class="title"><?=__('Соусы', 'korjik')?></h2>
 				</div>
 				<div class="products__items">
 					<?php while ($sauces_query->have_posts()) : $sauces_query->the_post(); ?>
@@ -166,7 +216,7 @@ $addition_query = new WP_Query($addition_args);
 		<div class="container container-lg">
 			<div class="products">
 				<div class="products__top">
-					<h2 class="title">Добавки</h2>
+					<h2 class="title"><?=__('Добавки', 'korjik')?></h2>
 				</div>
 				<div class="products__items">
 					<?php while ($addition_query->have_posts()) : $addition_query->the_post(); ?>

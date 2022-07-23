@@ -7,6 +7,7 @@
     gap: 30px;
     padding-top: 5px;
     padding-bottom: 7px;
+    overflow-x: auto;
 
     &::-webkit-scrollbar {
       width: 2em;
@@ -24,8 +25,7 @@
       gap: 5px;
 
       &-icon {
-        max-width: 50px;
-        max-height: 80px;
+        width: 50px;
       }
 
       &-text {
@@ -39,8 +39,7 @@
         & {
 
           &-icon {
-            max-width: 45px;
-            max-height: 60px;
+            width: 40px;
           }
 
         }
@@ -137,6 +136,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 50px;
   }
 
 }

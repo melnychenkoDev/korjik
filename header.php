@@ -101,12 +101,12 @@ $count = $woocommerce->cart->get_cart_contents_count();
 						<?php endif; ?>
 						<div class="text"><?= __('Звони браток, это бесплатно', 'korjik') ?></div>
 					</div>
-					<!--                    <div class="info_item delivery">-->
-					<!--                        <div class="top icon icon-delivery-zone"><a class="title" href="-->
-					<?//=get_page_link(150)?><!--">--><?//= __('Зоны доставки', 'korjik')?><!--</a></div>-->
-					<!--                        <div class="text">-->
-					<?//= __('Часик в радость, коржик в сладость', 'korjik')?><!--</div>-->
-					<!--                    </div>-->
+					<div class="info_item delivery">
+						<div class="top icon icon-delivery-zone"><a class="title" href="
+					<?= get_page_link(150) ?>"><?= __('Зоны доставки', 'korjik') ?></a></div>
+						<div class="text">
+							<?= __('Часик в радость, коржик в сладость', 'korjik') ?></div>
+					</div>
 				</div>
 				<div class="social__networks">
 					<?php if (have_rows('social_networks', 'option')) : ?>
@@ -184,12 +184,12 @@ $count = $woocommerce->cart->get_cart_contents_count();
 				<?php endif; ?>
 				<div class="text"><?= __('Звони браток, это бесплатно', 'korjik') ?></div>
 			</div>
-			<!--            <div class="info_item delivery">-->
-			<!--                <div class="top icon icon-delivery-zone-main-color"><a class="title" href="#">-->
-			<?//= __('Зоны доставки', 'korjik')?><!--</a></div>-->
-			<!--                <div class="text">-->
-			<?//= __('Часик в радость, коржик в сладость', 'korjik')?><!--</div>-->
-			<!--            </div>-->
+			<div class="info_item delivery">
+				<div class="top icon icon-delivery-zone-main-color"><a class="title" href="<?= get_page_link(150) ?>">
+						<?= __('Зоны доставки', 'korjik') ?></a></div>
+				<div class="text">
+					<?= __('Часик в радость, коржик в сладость', 'korjik') ?></div>
+			</div>
 		</div>
 		<div class="social__networks">
 			<?php if (have_rows('social_networks', 'option')) : ?>

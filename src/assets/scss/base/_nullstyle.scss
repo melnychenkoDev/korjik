@@ -83,6 +83,10 @@ li {
   list-style: none;
 }
 
+pre {
+  white-space: break-spaces!important;
+}
+
 img {
   max-width: 100%;
   height: auto;

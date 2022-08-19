@@ -5,6 +5,9 @@ $pizza_args = array(
     'post_type' => 'product',
     'product_cat' => 'pizza',
     'posts_per_page' => -1,
+	'orderby' => 'meta_value_num',
+	'meta_key' => '_price',
+	'order' => 'asc'
 );
 $pizza_query = new WP_Query($pizza_args);
 
@@ -12,6 +15,9 @@ $rolls_args = array(
 	'post_type' => 'product',
 	'product_cat' => 'rolls',
 	'posts_per_page' => -1,
+	'orderby' => 'meta_value_num',
+	'meta_key' => '_price',
+	'order' => 'asc'
 );
 $rolls_query = new WP_Query($rolls_args);
 
@@ -19,6 +25,9 @@ $bullfinches_nigiri_args = array(
 	'post_type' => 'product',
 	'product_cat' => 'bullfinches-nigiri',
 	'posts_per_page' => -1,
+	'orderby' => 'meta_value_num',
+	'meta_key' => '_price',
+	'order' => 'asc'
 );
 $bullfinches_nigiri_query = new WP_Query($bullfinches_nigiri_args);
 
@@ -26,6 +35,9 @@ $bowls_args = array(
 	'post_type' => 'product',
 	'product_cat' => 'bowls',
 	'posts_per_page' => -1,
+	'orderby' => 'meta_value_num',
+	'meta_key' => '_price',
+	'order' => 'asc'
 );
 $bowls_query = new WP_Query($bowls_args);
 
@@ -33,6 +45,9 @@ $drink_args = array(
     'post_type' => 'product',
     'product_cat' => 'beverages',
     'posts_per_page' => -1,
+	'orderby' => 'meta_value_num',
+	'meta_key' => '_price',
+	'order' => 'asc'
 );
 $drink_query = new WP_Query($drink_args);
 
@@ -40,6 +55,9 @@ $desserts_args = array(
     'post_type' => 'product',
     'product_cat' => 'desserts',
     'posts_per_page' => -1,
+	'orderby' => 'meta_value_num',
+	'meta_key' => '_price',
+	'order' => 'asc'
 );
 $desserts_query = new WP_Query($desserts_args);
 
@@ -54,6 +72,9 @@ $sauces_args = array(
     'post_type' => 'product',
     'product_cat' => 'sauces',
     'posts_per_page' => -1,
+	'orderby' => 'meta_value_num',
+	'meta_key' => '_price',
+	'order' => 'asc'
 );
 $sauces_query = new WP_Query($sauces_args);
 
@@ -64,26 +85,6 @@ $addition_args = array(
 );
 $addition_query = new WP_Query($addition_args);
 ?>
-
-
-
-<?php if ($pizza_query->have_posts()): ?>
-    <section class="products__wrapper" id="pizza">
-        <div class="container container-lg">
-            <div class="products">
-                <div class="products__top">
-                    <h2 class="title"><?=__('Пицца', 'korjik')?></h2>
-                </div>
-                <div class="products__items">
-                    <?php while ($pizza_query->have_posts()) : $pizza_query->the_post(); ?>
-                        <?php $product = wc_get_product(get_the_ID()); ?>
-                        <?php get_template_part('template-parts/product/content', 'product', array('product' => $product)) ?>
-                    <?php endwhile; ?>
-                </div>
-            </div>
-        </div>
-    </section>
-<?php endif; ?>
 
 <?php if ($rolls_query->have_posts()): ?>
 	<section class="products__wrapper" id="rolls">
@@ -101,6 +102,24 @@ $addition_query = new WP_Query($addition_args);
 			</div>
 		</div>
 	</section>
+<?php endif; ?>
+
+<?php if ($pizza_query->have_posts()): ?>
+    <section class="products__wrapper" id="pizza">
+        <div class="container container-lg">
+            <div class="products">
+                <div class="products__top">
+                    <h2 class="title"><?=__('Пицца', 'korjik')?></h2>
+                </div>
+                <div class="products__items">
+                    <?php while ($pizza_query->have_posts()) : $pizza_query->the_post(); ?>
+                        <?php $product = wc_get_product(get_the_ID()); ?>
+                        <?php get_template_part('template-parts/product/content', 'product', array('product' => $product)) ?>
+                    <?php endwhile; ?>
+                </div>
+            </div>
+        </div>
+    </section>
 <?php endif; ?>
 
 <?php if ($bullfinches_nigiri_query->have_posts()): ?>

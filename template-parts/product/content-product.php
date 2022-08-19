@@ -23,7 +23,19 @@ foreach ($tag_ids as $tag_id) {
     $tag_name = $tag->name;
     $tag_slug = $tag->slug;
 
-    $tag_html .= '<div class="tag tag_'.$tag_slug.'">'.$tag_name.'</div>';
+	switch ($tag_slug) {
+		case 'spicy':
+			$tag_html .= '<div class="tag tag_'.$tag_slug.'"><img src="'.get_template_directory_uri().'/images/static/spicy.png" alt="'.$tag_slug.'" title="'.$tag_name.'" /></div>';
+			break;
+		case 'vegan':
+			$tag_html .= '<div class="tag tag_'.$tag_slug.'"><img src="'.get_template_directory_uri().'/images/static/vegan.png" alt="'.$tag_slug.'" title="'.$tag_name.'" /></div>';
+			break;
+		default:
+			$tag_html .= '<div class="tag tag_'.$tag_slug.'">'.$tag_name.'</div>';
+			break;
+	}
+
+
 }
 
 ?>

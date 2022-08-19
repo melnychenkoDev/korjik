@@ -228,6 +228,7 @@ $news_query = new WP_Query($news_args);
 
 	<div class="header__content section">
 
+<<<<<<< HEAD
 		<div class="site__header_sticky">
 			<div class="container container-lg">
 				<div class="nav__product__menu">
@@ -236,11 +237,23 @@ $news_query = new WP_Query($news_args);
 							<?php if (get_sub_field('nav_product_is_view') == 1) : ?>
 								<div class="nav__product__menu_item">
 									<a href="<?php the_sub_field('nav_product_menu_id'); ?>">
+=======
+        <div class="site__header_sticky">
+            <div class="container container-lg">
+                <div class="nav__product__menu">
+                    <?php if (have_rows('nav_product_menu', 'option')) : ?>
+                        <?php while (have_rows('nav_product_menu', 'option')) : the_row(); ?>
+                            <?php if ( get_sub_field( 'nav_product_is_view' ) == 1 ) : ?>
+                                <div class="nav__product__menu_item">
+                                    <a class="nav__product__menu_item-text"
+                                       href="<?php the_sub_field('nav_product_menu_id'); ?>">
+>>>>>>> ddfefa9f9df81ddde6c7bb1fde865e277b5ce98e
 										<?php if (get_sub_field('nav_product_menu_icon')) : ?>
 											<div class="nav__product__menu_item-icon">
 												<img src="<?php the_sub_field('nav_product_menu_icon'); ?>"/>
 											</div>
 										<?php endif ?>
+<<<<<<< HEAD
 									</a>
 									<a class="nav__product__menu_item-text"
 									   href="<?php the_sub_field('nav_product_menu_id'); ?>"><?php the_sub_field('nav_product_menu_text'); ?></a>
@@ -266,6 +279,30 @@ $news_query = new WP_Query($news_args);
 				</div>
 			</div>
 		</div>
+=======
+                                        <?php the_sub_field('nav_product_menu_text'); ?>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                </div>
+                <div class="actions">
+                    <!--                    <div class="actions_item">-->
+                    <!--                        <div class="favorite open_favorite_btn"><i class="icon icon-favorite"></i></div>-->
+                    <!--                    </div>-->
+                    <div class="actions_item">
+                        <div class="open_cart_btn btn btn-lg"><i class="icon icon-cart"></i><?= __('Корзина', 'korjik')?> <span class="count"><?=$count?></span>
+                            <div class="open_cart_btn-message">
+                                <div class="title"><?= __('Браток, ну ты че?', 'korjik')?></div>
+                                <div class="sub-tit"><?= __('У тебя в корзине пусто, добавь ченить', 'korjik')?></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+>>>>>>> ddfefa9f9df81ddde6c7bb1fde865e277b5ce98e
 
 		<?php if (is_front_page() && get_field('news_on', 'option') == 1): ?>
 			<?php if ($news_query->have_posts()): ?>

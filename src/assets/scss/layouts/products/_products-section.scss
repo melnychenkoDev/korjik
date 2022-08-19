@@ -26,7 +26,8 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 40px;
 
-      @media (max-width: $displayWidthLg) {
+      @media (max-width: $displayWidthXl) {
+        grid-template-columns: repeat(1, 1fr);
         gap: 20px;
       }
 

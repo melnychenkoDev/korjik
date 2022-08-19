@@ -8,6 +8,7 @@
   text-transform: none;
   text-decoration: none;
   font-family: 'Gilroy';
+  scroll-behavior: smooth;
 
   &::before,
   &::after {
@@ -72,7 +73,6 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
   min-height: 100vh;
-  scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }

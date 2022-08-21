@@ -78,231 +78,201 @@ $count = $woocommerce->cart->get_cart_contents_count();
 	</noscript>
 	<!-- End Google Tag Manager (noscript) -->
 <?php wp_body_open(); ?>
-<div id="page" class="site">
-	<header class="site__header">
-		<div class="container container-lg">
-			<div class="site__header_top">
-				<div class="logo">
-					<?php the_custom_logo(); ?>
-				</div>
-				<div class="info">
-					<div class="info_item call">
-						<?php $i = 0;
-						if (have_rows('header_number', 'option')) : ?>
-							<?php while (have_rows('header_number', 'option')) : the_row(); ?>
-								<div class="top top-<?= $i ?> icon icon-tel">
-									<a class="title"
-									   href="tel:<?php clear_phone(the_sub_field('header_number_link')); ?>">
-										<?php the_sub_field('header_number_text'); ?>
-									</a>
-								</div>
-								<?php $i++; ?>
-							<?php endwhile; ?>
-						<?php endif; ?>
-						<div class="text"><?= __('Звони браток, это бесплатно', 'korjik') ?></div>
+	<div id="page" class="site">
+		<header class="site__header">
+			<div class="container container-lg">
+				<div class="site__header_top">
+					<div class="logo">
+						<?php the_custom_logo(); ?>
 					</div>
-					<div class="info_item delivery">
-						<div class="top icon icon-delivery-zone"><a class="title" href="
+					<div class="info">
+						<div class="info_item call">
+							<?php $i = 0;
+							if (have_rows('header_number', 'option')) : ?>
+								<?php while (have_rows('header_number', 'option')) : the_row(); ?>
+									<div class="top top-<?= $i ?> icon icon-tel">
+										<a class="title"
+										   href="tel:<?php clear_phone(the_sub_field('header_number_link')); ?>">
+											<?php the_sub_field('header_number_text'); ?>
+										</a>
+									</div>
+									<?php $i++; ?>
+								<?php endwhile; ?>
+							<?php endif; ?>
+							<div class="text"><?= __('Звони браток, это бесплатно', 'korjik') ?></div>
+						</div>
+						<div class="info_item delivery">
+							<div class="top icon icon-delivery-zone"><a class="title" href="
 					<?= get_page_link(150) ?>"><?= __('Зоны доставки', 'korjik') ?></a></div>
-						<div class="text">
-							<?= __('Часик в радость, коржик в сладость', 'korjik') ?></div>
+							<div class="text">
+								<?= __('Часик в радость, коржик в сладость', 'korjik') ?></div>
+						</div>
 					</div>
-				</div>
-				<div class="social__networks">
-					<?php if (have_rows('social_networks', 'option')) : ?>
-						<?php while (have_rows('social_networks', 'option')) : the_row(); ?>
-							<div class="social__networks_item">
-								<a href="<?= the_sub_field('social_network_link') ? the_sub_field('social_network_link') : '#'; ?>"
-								   target="_blank">
-									<?php if (get_sub_field('social_network_icon')) : ?>
-										<img src="<?php the_sub_field('social_network_icon'); ?>"
-											 alt="<?php the_sub_field('social_network_text'); ?>"/>
-									<?php endif ?>
-									<span class="text">
+					<div class="social__networks">
+						<?php if (have_rows('social_networks', 'option')) : ?>
+							<?php while (have_rows('social_networks', 'option')) : the_row(); ?>
+								<div class="social__networks_item">
+									<a href="<?= the_sub_field('social_network_link') ? the_sub_field('social_network_link') : '#'; ?>"
+									   target="_blank">
+										<?php if (get_sub_field('social_network_icon')) : ?>
+											<img src="<?php the_sub_field('social_network_icon'); ?>"
+												 alt="<?php the_sub_field('social_network_text'); ?>"/>
+										<?php endif ?>
+										<span class="text">
                                 <?php the_sub_field('social_network_text'); ?>
                             </span>
+									</a>
+								</div>
+							<?php endwhile; ?>
+						<?php endif; ?>
+					</div>
+					<div class="languages_selector">
+						<?= my_site_custom_languages_selector_template() ?>
+					</div>
+
+					<div class="static__pages">
+						<nav class="static__pages_menu">
+							<?php if (have_rows('menu', 'option')) : ?>
+								<?php while (have_rows('menu', 'option')) : the_row(); ?>
+									<?php
+									$menu_link = get_sub_field('menu_link');
+									$menu_link = !empty($menu_link) ? $menu_link : '#';
+									?>
+									<div class="static__pages_menu_item">
+										<a href="<?php echo esc_url($menu_link); ?>"><?php the_sub_field('menu_text'); ?></a>
+									</div>
+								<?php endwhile; ?>
+							<?php endif; ?>
+						</nav>
+					</div>
+					<div class="mob__menu_trigger">
+						<div class="line"></div>
+						<div class="line"></div>
+						<div class="line"></div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div class="site__header_mob_menu">
+			<div class="icon icon-plus close"></div>
+			<div class="static__pages">
+				<nav class="static__pages_menu">
+					<?php if (have_rows('menu', 'option')) : ?>
+						<?php while (have_rows('menu', 'option')) : the_row(); ?>
+							<?php
+							$menu_link = get_sub_field('menu_link');
+							$menu_link = !empty($menu_link) ? $menu_link : '#';
+							?>
+							<div class="static__pages_menu_item">
+								<a href="<?php echo esc_url($menu_link); ?>"><?php the_sub_field('menu_text'); ?></a>
+							</div>
+						<?php endwhile; ?>
+					<?php endif; ?>
+				</nav>
+			</div>
+			<div class="info">
+				<div class="info_item call">
+					<?php if (have_rows('header_number', 'option')) : ?>
+						<?php while (have_rows('header_number', 'option')) : the_row(); ?>
+							<div class="top icon icon-tel-main-color">
+								<a class="title" href="tel:<?php clear_phone(the_sub_field('header_number_link')); ?>">
+									<?php the_sub_field('header_number_text'); ?>
 								</a>
 							</div>
 						<?php endwhile; ?>
 					<?php endif; ?>
+					<div class="text"><?= __('Звони браток, это бесплатно', 'korjik') ?></div>
 				</div>
-				<div class="languages_selector">
-					<?= my_site_custom_languages_selector_template() ?>
-				</div>
-
-				<div class="static__pages">
-					<nav class="static__pages_menu">
-						<?php if (have_rows('menu', 'option')) : ?>
-							<?php while (have_rows('menu', 'option')) : the_row(); ?>
-								<?php
-								$menu_link = get_sub_field('menu_link');
-								$menu_link = !empty($menu_link) ? $menu_link : '#';
-								?>
-								<div class="static__pages_menu_item">
-									<a href="<?php echo esc_url($menu_link); ?>"><?php the_sub_field('menu_text'); ?></a>
-								</div>
-							<?php endwhile; ?>
-						<?php endif; ?>
-					</nav>
-				</div>
-				<div class="mob__menu_trigger">
-					<div class="line"></div>
-					<div class="line"></div>
-					<div class="line"></div>
+				<div class="info_item delivery">
+					<div class="top icon icon-delivery-zone-main-color"><a class="title"
+																		   href="<?= get_page_link(150) ?>">
+							<?= __('Зоны доставки', 'korjik') ?></a></div>
+					<div class="text">
+						<?= __('Часик в радость, коржик в сладость', 'korjik') ?></div>
 				</div>
 			</div>
-		</div>
-	</header>
-
-	<div class="site__header_mob_menu">
-		<div class="icon icon-plus close"></div>
-		<div class="static__pages">
-			<nav class="static__pages_menu">
-				<?php if (have_rows('menu', 'option')) : ?>
-					<?php while (have_rows('menu', 'option')) : the_row(); ?>
-						<?php
-						$menu_link = get_sub_field('menu_link');
-						$menu_link = !empty($menu_link) ? $menu_link : '#';
-						?>
-						<div class="static__pages_menu_item">
-							<a href="<?php echo esc_url($menu_link); ?>"><?php the_sub_field('menu_text'); ?></a>
-						</div>
-					<?php endwhile; ?>
-				<?php endif; ?>
-			</nav>
-		</div>
-		<div class="info">
-			<div class="info_item call">
-				<?php if (have_rows('header_number', 'option')) : ?>
-					<?php while (have_rows('header_number', 'option')) : the_row(); ?>
-						<div class="top icon icon-tel-main-color">
-							<a class="title" href="tel:<?php clear_phone(the_sub_field('header_number_link')); ?>">
-								<?php the_sub_field('header_number_text'); ?>
+			<div class="social__networks">
+				<?php if (have_rows('social_networks', 'option')) : ?>
+					<?php while (have_rows('social_networks', 'option')) : the_row(); ?>
+						<div class="social__networks_item">
+							<a href="<?= the_sub_field('social_network_link') ? the_sub_field('social_network_link') : '#'; ?>"
+							   target="_blank">
+								<?php if (get_sub_field('social_network_icon')) : ?>
+									<img src="<?php the_sub_field('social_network_icon'); ?>"
+										 alt="<?php the_sub_field('social_network_text'); ?>"/>
+								<?php endif ?>
+								<span class="text">
+                                <?php the_sub_field('social_network_text'); ?>
+                            </span>
 							</a>
 						</div>
 					<?php endwhile; ?>
 				<?php endif; ?>
-				<div class="text"><?= __('Звони браток, это бесплатно', 'korjik') ?></div>
 			</div>
-			<div class="info_item delivery">
-				<div class="top icon icon-delivery-zone-main-color"><a class="title" href="<?= get_page_link(150) ?>">
-						<?= __('Зоны доставки', 'korjik') ?></a></div>
-				<div class="text">
-					<?= __('Часик в радость, коржик в сладость', 'korjik') ?></div>
+			<div class="languages_selector mob">
+				<?= my_site_custom_languages_selector_template() ?>
 			</div>
 		</div>
-		<div class="social__networks">
-			<?php if (have_rows('social_networks', 'option')) : ?>
-				<?php while (have_rows('social_networks', 'option')) : the_row(); ?>
-					<div class="social__networks_item">
-						<a href="<?= the_sub_field('social_network_link') ? the_sub_field('social_network_link') : '#'; ?>"
-						   target="_blank">
-							<?php if (get_sub_field('social_network_icon')) : ?>
-								<img src="<?php the_sub_field('social_network_icon'); ?>"
-									 alt="<?php the_sub_field('social_network_text'); ?>"/>
-							<?php endif ?>
-							<span class="text">
-                                <?php the_sub_field('social_network_text'); ?>
-                            </span>
-						</a>
-					</div>
-				<?php endwhile; ?>
-			<?php endif; ?>
-		</div>
-		<div class="languages_selector mob">
-			<?= my_site_custom_languages_selector_template() ?>
-		</div>
-	</div>
 
 
-<?php
+		<?php
 
-$news_args = array(
-	'post_type' => 'news',
-	'posts_per_page' => -1
-);
-$news_query = new WP_Query($news_args);
+		$news_args = array(
+			'post_type' => 'news',
+			'posts_per_page' => -1
+		);
+		$news_query = new WP_Query($news_args);
 
-?>
+		?>
 
 
-	<div class="header__content section">
+		<div class="header__content section">
 
-<<<<<<< HEAD
-		<div class="site__header_sticky">
-			<div class="container container-lg">
-				<div class="nav__product__menu">
-					<?php if (have_rows('nav_product_menu', 'option')) : ?>
-						<?php while (have_rows('nav_product_menu', 'option')) : the_row(); ?>
-							<?php if (get_sub_field('nav_product_is_view') == 1) : ?>
-								<div class="nav__product__menu_item">
-									<a href="<?php the_sub_field('nav_product_menu_id'); ?>">
-=======
-        <div class="site__header_sticky">
-            <div class="container container-lg">
-                <div class="nav__product__menu">
-                    <?php if (have_rows('nav_product_menu', 'option')) : ?>
-                        <?php while (have_rows('nav_product_menu', 'option')) : the_row(); ?>
-                            <?php if ( get_sub_field( 'nav_product_is_view' ) == 1 ) : ?>
-                                <div class="nav__product__menu_item">
-                                    <a class="nav__product__menu_item-text"
-                                       href="<?php the_sub_field('nav_product_menu_id'); ?>">
->>>>>>> ddfefa9f9df81ddde6c7bb1fde865e277b5ce98e
-										<?php if (get_sub_field('nav_product_menu_icon')) : ?>
-											<div class="nav__product__menu_item-icon">
-												<img src="<?php the_sub_field('nav_product_menu_icon'); ?>"/>
-											</div>
-										<?php endif ?>
-<<<<<<< HEAD
-									</a>
-									<a class="nav__product__menu_item-text"
-									   href="<?php the_sub_field('nav_product_menu_id'); ?>"><?php the_sub_field('nav_product_menu_text'); ?></a>
-								</div>
+				<div class="site__header_sticky">
+					<div class="container container-lg">
+						<div class="nav__product__menu">
+							<?php if (have_rows('nav_product_menu', 'option')) : ?>
+								<?php while (have_rows('nav_product_menu', 'option')) : the_row(); ?>
+									<?php if (get_sub_field('nav_product_is_view') == 1) : ?>
+										<div class="nav__product__menu_item">
+											<a class="nav__product__menu_item-text lg-hide"
+											   href="<?php the_sub_field('nav_product_menu_id'); ?>">
+
+												<?php if (get_sub_field('nav_product_menu_icon')) : ?>
+													<div class="nav__product__menu_item-icon">
+														<img src="<?php the_sub_field('nav_product_menu_icon'); ?>"/>
+													</div>
+												<?php endif ?>
+												<?php the_sub_field('nav_product_menu_text'); ?>
+											</a>
+
+										</div>
+									<?php endif; ?>
+								<?php endwhile; ?>
 							<?php endif; ?>
-						<?php endwhile; ?>
-					<?php endif; ?>
-				</div>
-				<div class="actions">
-					<!--                    <div class="actions_item">-->
-					<!--                        <div class="favorite open_favorite_btn"><i class="icon icon-favorite"></i></div>-->
-					<!--                    </div>-->
-					<div class="actions_item">
-						<div class="open_cart_btn btn btn-lg"><i
-								class="icon icon-cart"></i><?= __('Корзина', 'korjik') ?> <span
-								class="count"><?= $count ?></span>
-							<div class="open_cart_btn-message">
-								<div class="title"><?= __('Браток, ну ты че?', 'korjik') ?></div>
-								<div class="sub-tit"><?= __('У тебя в корзине пусто, добавь ченить', 'korjik') ?></div>
+						</div>
+						<div class="actions">
+							<!--                    <div class="actions_item">-->
+							<!--                        <div class="favorite open_favorite_btn"><i class="icon icon-favorite"></i></div>-->
+							<!--                    </div>-->
+							<div class="actions_item">
+								<div class="open_cart_btn btn btn-lg">
+									<i class="icon icon-cart"></i><?= __('Корзина', 'korjik') ?>
+									<span class="count"><?= $count ?></span>
+									<div class="open_cart_btn-message">
+										<div
+											class="title"><?= __('Браток, ну ты че?', 'korjik') ?></div>
+										<div
+											class="sub-tit"><?= __('У тебя в корзине пусто, добавь ченить', 'korjik') ?></div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 		</div>
-=======
-                                        <?php the_sub_field('nav_product_menu_text'); ?>
-                                    </a>
-                                </div>
-                            <?php endif; ?>
-                        <?php endwhile; ?>
-                    <?php endif; ?>
-                </div>
-                <div class="actions">
-                    <!--                    <div class="actions_item">-->
-                    <!--                        <div class="favorite open_favorite_btn"><i class="icon icon-favorite"></i></div>-->
-                    <!--                    </div>-->
-                    <div class="actions_item">
-                        <div class="open_cart_btn btn btn-lg"><i class="icon icon-cart"></i><?= __('Корзина', 'korjik')?> <span class="count"><?=$count?></span>
-                            <div class="open_cart_btn-message">
-                                <div class="title"><?= __('Браток, ну ты че?', 'korjik')?></div>
-                                <div class="sub-tit"><?= __('У тебя в корзине пусто, добавь ченить', 'korjik')?></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
->>>>>>> ddfefa9f9df81ddde6c7bb1fde865e277b5ce98e
+
 
 		<?php if (is_front_page() && get_field('news_on', 'option') == 1): ?>
 			<?php if ($news_query->have_posts()): ?>

@@ -10,22 +10,23 @@
   .news_card {
     display: flex;
     position: relative;
-    max-width: calc(100% / 6);
+    //max-width: calc(100% / 6);
+    max-width: 100%;
     overflow: hidden;
     border-radius: 30px;
     cursor: pointer;
 
-    @media (max-width: $displayWidthXxl) {
-      max-width: calc(100% / 5);
-    }
-
-    @media (max-width: $displayWidthXl) {
-      max-width: calc(100% / 4);
-    }
-
-    @media (max-width: $displayWidthLg) {
-      max-width: calc(100% / 3);
-    }
+    //@media (max-width: $displayWidthXxl) {
+    //  max-width: calc(100% / 5);
+    //}
+    //
+    //@media (max-width: $displayWidthXl) {
+    //  max-width: calc(100% / 4);
+    //}
+    //
+    //@media (max-width: $displayWidthLg) {
+    //  max-width: calc(100% / 3);
+    //}
 
 
     &_img {
@@ -83,6 +84,8 @@
 
     .carousel__slide {
       padding: 15px;
+      width: 100%;
+      height: fit-content;
 
       @media (max-width: $displayWidthLg) {
         padding: 10px;

@@ -227,7 +227,7 @@ $count = $woocommerce->cart->get_cart_contents_count();
 		?>
 
 
-		<div class="header__content section">
+		<div class="header__content section" style="margin-bottom: 20px;">
 
 				<div class="site__header_sticky">
 					<div class="container container-lg">
@@ -303,9 +303,19 @@ $count = $woocommerce->cart->get_cart_contents_count();
 
 								?>
 								<div class="news_card carousel__slide" <?= $data_attrs ?>>
-									<img class="news_card_img" src="<?= get_the_post_thumbnail_url(); ?>"
-										 alt="<?= get_the_title(); ?>">
-									<div class="news_card_title"><?= get_the_title(); ?></div>
+									<?php
+									$alt = get_the_title();
+									$size = 'full';
+									$img_attr = array(
+										'class' => "news_card_img",
+										'alt'   => $alt,
+									);
+									$img = get_the_post_thumbnail(get_the_ID(), $size, $img_attr);
+									?>
+									<?=$img?>
+<!--									<img class="news_card_img" src="--><?//= get_the_post_thumbnail_url(); ?><!--"-->
+<!--										 alt="--><?//= get_the_title(); ?><!--">-->
+<!--									<div class="news_card_title">--><?//= get_the_title(); ?><!--</div>-->
 								</div>
 							<?php endwhile; ?>
 						</div>

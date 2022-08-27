@@ -16,9 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const newsCarousel = new Carousel(elNewsCarousel, {
             Dots: true,
             Navigation: false,
-            slidesPerPage: 1,
-            friction : 0.96,
-            dragFree: true,
+            center: true,
             infinite: false,
         });
     }

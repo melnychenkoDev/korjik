@@ -1,4 +1,6 @@
 import { Carousel } from "@fancyapps/ui";
+import { Autoplay } from "@fancyapps/ui/dist/carousel.autoplay.esm.js";
+Carousel.Plugins.Autoplay = Autoplay;
 
 import headerMenuSticky from "../modules/headerMenuSticky";
 import mediaAction from '../modules/mediaAction';
@@ -18,6 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
             Navigation: false,
             center: true,
             infinite: false,
+            Autoplay: {
+                timeout: 3000,
+            }
         });
     }
 

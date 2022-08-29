@@ -31,6 +31,16 @@ $bullfinches_nigiri_args = array(
 );
 $bullfinches_nigiri_query = new WP_Query($bullfinches_nigiri_args);
 
+$gunkans_volcanoes_args = array(
+	'post_type' => 'product',
+	'product_cat' => 'gunkans-volcanoes',
+	'posts_per_page' => -1,
+	'orderby' => 'meta_value_num',
+	'meta_key' => '_price',
+	'order' => 'asc'
+);
+$gunkans_volcanoes_query = new WP_Query($gunkans_volcanoes_args);
+
 $bowls_args = array(
 	'post_type' => 'product',
 	'product_cat' => 'bowls',
@@ -113,6 +123,24 @@ $addition_query = new WP_Query($addition_args);
 				</div>
 				<div class="products__items">
 					<?php while ($bullfinches_nigiri_query->have_posts()) : $bullfinches_nigiri_query->the_post(); ?>
+						<?php $product = wc_get_product(get_the_ID()); ?>
+						<?php get_template_part('template-parts/product/content', 'product', array('product' => $product)) ?>
+					<?php endwhile; ?>
+				</div>
+			</div>
+		</div>
+	</section>
+<?php endif; ?>
+
+<?php if ($gunkans_volcanoes_query->have_posts()): ?>
+	<section class="products__wrapper" id="gunkans-volcanoes">
+		<div class="container container-lg">
+			<div class="products">
+				<div class="products__top">
+					<h2 class="title"><?=__('Гунканы-Вулканы', 'korjik')?></h2>
+				</div>
+				<div class="products__items">
+					<?php while ($gunkans_volcanoes_query->have_posts()) : $gunkans_volcanoes_query->the_post(); ?>
 						<?php $product = wc_get_product(get_the_ID()); ?>
 						<?php get_template_part('template-parts/product/content', 'product', array('product' => $product)) ?>
 					<?php endwhile; ?>

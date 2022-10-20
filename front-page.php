@@ -21,6 +21,26 @@ $rolls_args = array(
 );
 $rolls_query = new WP_Query($rolls_args);
 
+$rolls_xxl_args = array(
+	'post_type' => 'product',
+	'product_cat' => 'rolls-xxl',
+	'posts_per_page' => -1,
+	'orderby' => 'meta_value_num',
+	'meta_key' => '_price',
+	'order' => 'asc'
+);
+$rolls_xxl_query = new WP_Query($rolls_xxl_args);
+
+$sets_args = array(
+	'post_type' => 'product',
+	'product_cat' => 'sets',
+	'posts_per_page' => -1,
+	'orderby' => 'meta_value_num',
+	'meta_key' => '_price',
+	'order' => 'asc'
+);
+$sets_query = new WP_Query($sets_args);
+
 $bullfinches_nigiri_args = array(
 	'post_type' => 'product',
 	'product_cat' => 'bullfinches-nigiri',
@@ -105,6 +125,42 @@ $addition_query = new WP_Query($addition_args);
 				</div>
 				<div class="products__items">
 					<?php while ($rolls_query->have_posts()) : $rolls_query->the_post(); ?>
+						<?php $product = wc_get_product(get_the_ID()); ?>
+						<?php get_template_part('template-parts/product/content', 'product', array('product' => $product)) ?>
+					<?php endwhile; ?>
+				</div>
+			</div>
+		</div>
+	</section>
+<?php endif; ?>
+
+<?php if ($rolls_xxl_query->have_posts()): ?>
+	<section class="products__wrapper" id="rolls-xxl">
+		<div class="container container-lg">
+			<div class="products">
+				<div class="products__top">
+					<h2 class="title"><?=__('Роллы XXL', 'korjik')?></h2>
+				</div>
+				<div class="products__items">
+					<?php while ($rolls_xxl_query->have_posts()) : $rolls_xxl_query->the_post(); ?>
+						<?php $product = wc_get_product(get_the_ID()); ?>
+						<?php get_template_part('template-parts/product/content', 'product', array('product' => $product)) ?>
+					<?php endwhile; ?>
+				</div>
+			</div>
+		</div>
+	</section>
+<?php endif; ?>
+
+<?php if ($sets_query->have_posts()): ?>
+	<section class="products__wrapper" id="sets">
+		<div class="container container-lg">
+			<div class="products">
+				<div class="products__top">
+					<h2 class="title"><?=__('Сеты', 'korjik')?></h2>
+				</div>
+				<div class="products__items">
+					<?php while ($sets_query->have_posts()) : $sets_query->the_post(); ?>
 						<?php $product = wc_get_product(get_the_ID()); ?>
 						<?php get_template_part('template-parts/product/content', 'product', array('product' => $product)) ?>
 					<?php endwhile; ?>
